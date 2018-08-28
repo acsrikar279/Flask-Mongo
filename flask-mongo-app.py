@@ -13,14 +13,19 @@ def result():
       name1 = result.get('Name',None)
       power1 = result.get('Power',None)
       level1 = result.get('Level',None)
+      print(name1)
       keys = list(result.keys())
       val = dict()
-      for i in result.keys():
-          temp = result.get(i)
-          if(temp!=""):
-            val[i] = temp 
-          print("Key is {}, Value is {}".format(i,result.get(i)))
-    #   result = db.resta.find(val)
+      val['Name'] = name1
+      # if name1=="" and power1=="" and level1=="":
+      #       val = "Name and power and level not entered"
+      # # val = mongo.db.heroes.find({"name":name1})
+      # elif name1=="" and power1=="":
+      #       val = "name and power entered"
+      # elif name1=="" and level1=="":
+      #       val = "name and level entered"
+      # elif level1=="" and power1=="":
+      #       val = "level and power entered"
       return render_template("dummy.html",result = val)
 if __name__ == '__main__':
    app.run(debug = True)
